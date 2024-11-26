@@ -48,4 +48,16 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Book book)) return false;
+
+        return getId() == book.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Long.hashCode(getId());
+    }
 }
