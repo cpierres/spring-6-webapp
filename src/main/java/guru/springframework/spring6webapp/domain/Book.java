@@ -60,4 +60,14 @@ public class Book {
     public int hashCode() {
         return Long.hashCode(getId());
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", authors=" + authors +
+                '}';
+    }
 }
