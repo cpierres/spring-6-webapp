@@ -44,8 +44,13 @@ public class BootstrapData implements CommandLineRunner {
         noEJB.setIsbn("67890");
         Book noEJBSaved = bookRepository.save(noEJB);
 
+        //la table d'assoc n'était pas renseignée car
+        //on ajoutait bien le livre à l'auteur ...
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
+        //mais on doit aussi ajouter l'auteur au livre ...
+        dddSaved.getAuthors().add(ericSaved);
+        noEJBSaved.getAuthors().add(rod);
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName("My Publisher");
